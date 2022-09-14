@@ -139,7 +139,7 @@ class _WorkoutsListState extends State<WorkoutsList> {
           child: Column(
             children: [
               SwitchListTile(
-                title: const Text('Only My Workouts'),
+                title: Text('Only My Workouts', style: TextStyle(color: Colors.black),),
                 value: filterOnlyMyWorkouts,
                 onChanged: (bool val) =>
                     setState(() => filterOnlyMyWorkouts = val)),
