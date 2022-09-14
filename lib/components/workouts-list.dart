@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../domain/workout.dart';
 
 class WorkoutsList extends StatefulWidget {
-  const WorkoutsList({Key? key}) : super(key: key);
 
   @override
   _WorkoutsListState createState() => _WorkoutsListState();
@@ -60,36 +59,38 @@ class _WorkoutsListState extends State<WorkoutsList> {
 
   @override
   Widget build(BuildContext context) {
-    var workoutsList = ListView.builder(
-        itemCount: workouts.length,
-        itemBuilder: (context, i){
-          return Card(
-            elevation: 2.0,
-            margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            child: Container(
-              decoration: const BoxDecoration(color: Color.fromRGBO(50, 65, 85, 0.9)),
-              child: ListTile(
-                contentPadding: const EdgeInsets.symmetric(horizontal: 10,),
-                leading: Container(
-                  padding: const EdgeInsets.only(right: 12),
-                  decoration: const BoxDecoration(
-                      border: Border(right: BorderSide(width: 1, color: Colors.white24))
+    var workoutsList = Expanded(
+      child: ListView.builder(
+          itemCount: workouts.length,
+          itemBuilder: (context, i) {
+            return Card(
+              elevation: 2.0,
+              margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              child: Container(
+                decoration:
+                const BoxDecoration(color: Color.fromRGBO(50, 65, 85, 0.9)),
+                child: ListTile(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+                  leading: Container(
+                    padding: const EdgeInsets.only(right: 12),
+                    decoration: const BoxDecoration(
+                        border: Border(
+                            right:
+                            BorderSide(width: 1, color: Colors.white24))),
+                    child: const Icon(Icons.fitness_center,
+                        color: Colors.white),
                   ),
-                  child: Icon(Icons.fitness_center, color: Theme.of(context).canvasColor),
+                  title: Text(workouts[i].title,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold)),
+                  trailing: const Icon(Icons.keyboard_arrow_right,
+                      color: Colors.white),
+                  subtitle: subtitle(context, workouts[i]),
                 ),
-                title: Text(workouts[i].title,
-                  style: TextStyle(
-                      color: Theme.of(context).canvasColor,
-                      fontWeight: FontWeight.bold
-                  ),
-                ),
-                trailing: const Icon(Icons.keyboard_arrow_right, color: Colors.white,),
-                subtitle: subtitle(context, workouts[i]),
-                textColor: const Color.fromRGBO(50, 65, 85, 1),
               ),
-            ),
-          );
-        }
+            );
+          }),
     );
 
     var filterInfo = Container(
