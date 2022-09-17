@@ -148,14 +148,28 @@ class _WorkoutsListState extends State<WorkoutsList> {
                 onChanged: (bool val) =>
                     setState(() => filterOnlyMyWorkouts = val)),
               DropdownButtonFormField<String>(
-                decoration: const InputDecoration(labelText: 'Level'),
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                ),
+                decoration: const InputDecoration(
+                  labelText: 'Level',
+                  labelStyle: TextStyle(
+                    color: Colors.black,
+                  )
+                ),
                 items: levelMenuItems,
                 value: filterLevel,
                 onChanged: (String? value) => setState(() => filterLevel = value!),
               ),
               TextFormField(
+                style: const TextStyle(color: Colors.black),
                 controller: filterTitleController,
-                decoration: const InputDecoration(labelText: 'Title'),
+                decoration: const InputDecoration(
+                  labelText: 'Title',
+                  labelStyle: TextStyle(
+                    color: Colors.black,
+                  )
+                ),
                 onChanged: (String? value) => setState(() {
                   filterTitle = value!;
                 }),
