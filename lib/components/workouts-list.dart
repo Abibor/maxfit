@@ -97,7 +97,11 @@ class _WorkoutsListState extends State<WorkoutsList> {
       margin: const EdgeInsets.only(top: 3, left: 7, right: 7, bottom: 5),
       decoration: BoxDecoration(color: Colors.white.withOpacity(0.5)),
       height: 40,
-      child: RaisedButton(
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary: Colors.white,
+          onPrimary: Theme.of(context).primaryColor, // foreground
+        ),
         child: Row(
           children: <Widget>[
             const Icon(Icons.filter_list),
@@ -139,7 +143,7 @@ class _WorkoutsListState extends State<WorkoutsList> {
           child: Column(
             children: [
               SwitchListTile(
-                title: Text('Only My Workouts', style: TextStyle(color: Colors.black),),
+                title: const Text('Only My Workouts', style: TextStyle(color: Colors.black),),
                 value: filterOnlyMyWorkouts,
                 onChanged: (bool val) =>
                     setState(() => filterOnlyMyWorkouts = val)),
@@ -160,22 +164,29 @@ class _WorkoutsListState extends State<WorkoutsList> {
                 children: <Widget>[
                   Expanded(
                     flex: 1,
-                    child: RaisedButton(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Theme.of(context).primaryColor,
+                        onPrimary: Colors.white, // foreground
+                      ),
                       onPressed: (){
                         filter();
                       },
-                      color: Theme.of(context).primaryColor,
+                      //color: Theme.of(context).primaryColor,
                       child: const Text("Apply", style: TextStyle(color: Colors.white)),
                     ),
                   ),
                   const SizedBox(width: 10),
                   Expanded(
                     flex: 1,
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       onPressed: (){
                         clearFilter();
                       },
-                      color: Colors.red,
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.red,
+                        onPrimary: Colors.white, // foreground
+                      ),
                       child: const Text("Clear", style: TextStyle(color: Colors.white)),
                     ),
                   )

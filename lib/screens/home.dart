@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var NavigationBar = CurvedNavigationBar(
-      items: <Widget>[
+      items: const <Widget>[
         Icon(Icons.fitness_center),
         Icon(Icons.search)
       ],
@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
       buttonBackgroundColor: Colors.white,
       backgroundColor: Colors.white.withOpacity(0.5),
       animationCurve: Curves.easeInOut,
-      animationDuration: Duration(milliseconds: 500),
+      animationDuration: const Duration(milliseconds: 500),
       onTap: (int index){
         setState(() => sectionIndex = index);
       },
@@ -41,28 +41,6 @@ class _HomePageState extends State<HomePage> {
       ),
       body: sectionIndex == 0 ? const ActiveWorkouts() : WorkoutsList(),
       bottomNavigationBar:NavigationBar
-      /*
-      //Простой navigation bar с двумя кнопками снизу
-      bottomNavigationBar: BottomNavigationBar(
-        items: const<BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.fitness_center),
-            label: 'My Workouts'
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-              label: 'Find Workouts'
-          ),
-        ],
-        currentIndex: sectionIndex,
-        backgroundColor: Colors.white30,
-        selectedItemColor: Colors.white,
-        onTap: (int index){
-          setState(() => sectionIndex = index);
-        },
-      ),
-
-      */
 
     );
   }
