@@ -99,8 +99,7 @@ class _WorkoutsListState extends State<WorkoutsList> {
       height: 40,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Colors.white,
-          onPrimary: Theme.of(context).primaryColor, // foreground
+          foregroundColor: Theme.of(context).primaryColor, backgroundColor: Colors.white, // foreground
         ),
         child: Row(
           children: <Widget>[
@@ -180,8 +179,7 @@ class _WorkoutsListState extends State<WorkoutsList> {
                     flex: 1,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Theme.of(context).primaryColor,
-                        onPrimary: Colors.white, // foreground
+                        foregroundColor: Colors.white, backgroundColor: Theme.of(context).primaryColor, // foreground
                       ),
                       onPressed: (){
                         filter();
@@ -198,8 +196,7 @@ class _WorkoutsListState extends State<WorkoutsList> {
                         clearFilter();
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.red,
-                        onPrimary: Colors.white, // foreground
+                        foregroundColor: Colors.white, backgroundColor: Colors.red, // foreground
                       ),
                       child: const Text("Clear", style: TextStyle(color: Colors.white)),
                     ),

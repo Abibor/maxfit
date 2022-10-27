@@ -8,8 +8,8 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // переменная isLoggedIn = false отвечает за отображение виджета аутентификации
-    final bool isLoggedIn = true;
+    const bool isLoggedIn = true;
 
-    return isLoggedIn ? HomePage() : AuthorizationPage();
+    return isLoggedIn ? const HomePage() : AuthorizationPage();
   }
 }
